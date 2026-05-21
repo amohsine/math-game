@@ -7,12 +7,13 @@ const optionsEl    = document.getElementById('options');
 const nextBtn      = document.getElementById('next-btn');
 
 let correctAnswer = 0;
+let currentLevel  = 1;
 
 // Level card clicks
 document.querySelectorAll('.card').forEach(card => {
   card.addEventListener('click', () => {
     const level = parseInt(card.dataset.level);
-    if (level === 1) {
+    if (level === 1 || level === 2) {
       openGame(level);
     }
   });
@@ -29,6 +30,7 @@ nextBtn.addEventListener('click', () => {
 });
 
 function openGame(level) {
+  currentLevel = level;
   levelTitle.textContent = `Level ${level}`;
   levelsScreen.classList.add('hidden');
   gameScreen.classList.remove('hidden');
@@ -37,11 +39,20 @@ function openGame(level) {
 }
 
 function generateQuestion() {
-  const a = randInt(1, 10);
-  const b = randInt(1, 10);
-  correctAnswer = a + b;
-  questionEl.textContent = `${a} + ${b} = ?`;
+  let a = randInt(1, 10);
+  let b = randInt(1, 10);
+  let questionText;
 
+  if (currentLevel === 1) {
+    correctAnswer = a + b;
+    questionText = `${a} + ${b} = ?`;
+  } else if (currentLevel === 2) {
+    if (b > a) [a, b] = [b, a];   // ensure a >= b so result is non-negative
+    correctAnswer = a - b;
+    questionText = `${a} - ${b} = ?`;
+  }
+
+  questionEl.textContent = questionText;
   const options = buildOptions(correctAnswer);
   optionsEl.innerHTML = '';
   options.forEach(value => {
