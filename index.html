@@ -7,19 +7,34 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <h1>Math Game</h1>
-    <div class="levels-grid">
-      <div class="card">Level 1</div>
-      <div class="card">Level 2</div>
-      <div class="card">Level 3</div>
-      <div class="card">Level 4</div>
-      <div class="card">Level 5</div>
-      <div class="card">Level 6</div>
-      <div class="card">Level 7</div>
-      <div class="card">Level 8</div>
-      <div class="card">Level 9</div>
-      <div class="card">Level 10</div>
+    <!-- Levels screen -->
+    <div id="levels-screen" class="screen">
+      <h1>Math Game</h1>
+      <div class="levels-grid">
+        <div class="card" data-level="1">Level 1</div>
+        <div class="card" data-level="2">Level 2</div>
+        <div class="card" data-level="3">Level 3</div>
+        <div class="card" data-level="4">Level 4</div>
+        <div class="card" data-level="5">Level 5</div>
+        <div class="card" data-level="6">Level 6</div>
+        <div class="card" data-level="7">Level 7</div>
+        <div class="card" data-level="8">Level 8</div>
+        <div class="card" data-level="9">Level 9</div>
+        <div class="card" data-level="10">Level 10</div>
+      </div>
     </div>
+
+    <!-- Game screen -->
+    <div id="game-screen" class="screen hidden">
+      <button id="back-btn">← Back</button>
+      <h2 id="level-title">Level 1</h2>
+      <div id="question-box">
+        <p id="question"></p>
+      </div>
+      <div id="options"></div>
+      <button id="next-btn" class="hidden">Next →</button>
+    </div>
+
     <script src="js/game.js"></script>
   </body>
 </html>

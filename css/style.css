@@ -6,16 +6,28 @@
 
 body {
   min-height: 100vh;
+  font-family: sans-serif;
+  background-color: #f5f5f5;
+  color: #222;
+}
+
+/* ── Screens ─────────────────────────────────────────── */
+
+.screen {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: sans-serif;
-  background-color: #f5f5f5;
-  color: #222;
   gap: 2rem;
   padding: 2rem;
 }
+
+.hidden {
+  display: none !important;
+}
+
+/* ── Levels screen ───────────────────────────────────── */
 
 h1 {
   font-size: 3rem;
@@ -47,4 +59,103 @@ h1 {
   border-color: #4f46e5;
   color: #fff;
   transform: translateY(-3px);
+}
+
+/* ── Game screen ─────────────────────────────────────── */
+
+#game-screen {
+  position: relative;
+}
+
+#back-btn {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  background: none;
+  border: 2px solid #ddd;
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+#back-btn:hover {
+  background-color: #e0e0e0;
+  border-color: #bbb;
+}
+
+#level-title {
+  font-size: 1.6rem;
+  color: #4f46e5;
+}
+
+#question-box {
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 1rem;
+  padding: 2rem 3rem;
+}
+
+#question {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+#options {
+  display: flex;
+  gap: 1rem;
+}
+
+.option-btn {
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 0.75rem;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s, transform 0.15s;
+  min-width: 5rem;
+}
+
+.option-btn:hover:not(:disabled) {
+  background-color: #4f46e5;
+  border-color: #4f46e5;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.option-btn:disabled {
+  cursor: default;
+}
+
+.option-btn.correct {
+  background-color: #22c55e;
+  border-color: #22c55e;
+  color: #fff;
+}
+
+.option-btn.wrong {
+  background-color: #ef4444;
+  border-color: #ef4444;
+  color: #fff;
+}
+
+#next-btn {
+  background-color: #4f46e5;
+  color: #fff;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s, transform 0.15s;
+}
+
+#next-btn:hover {
+  background-color: #4338ca;
+  transform: translateY(-2px);
 }
